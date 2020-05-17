@@ -23,7 +23,6 @@
   <link href="../static/vendor/icofont/icofont.min.css" rel="stylesheet" />
   <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
   <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet" />
-  <link href="../static/vendor/owl.carousel/static/owl.carousel.min.css" rel="stylesheet" />
   <link href="../static/vendor/venobox/venobox.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
@@ -117,7 +116,7 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container d-flex">
       <div class="contact-info mr-auto">
-        Manage <a href="./login/login.html">job portfolios here</a>
+        Manage <a href="/manageProfile">job portfolios here</a>
       </div>
       <div class="social-leinks">
         <div class="contact-info mr-auto">
@@ -131,7 +130,7 @@
   <header id="header">
     <div class="container d-flex">
       <div class="logo mr-auto">
-        <a href="index.html"><img src="../static/img/logo.png" alt="" class="img-fluid" style="min-height: 49px;" /></a>
+        <a href="/"><img src="../static/img/logo.png" alt="" class="img-fluid" style="min-height: 49px;" /></a>
       </div>
       <center>
         <div class="logo mr-auto">
@@ -300,37 +299,9 @@
     }
 
     // Click on a close button to hide the current list item
-    var close = document.getElementsByClassName("close");
-    var i;
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function () {
-        var div = this.parentElement;
-        div.style.display = "none";
-      };
-      $.ajax({
-        url: '/deleteQuestion',
-        type: 'POST',
-        data: { 'quest': inputValue },
-        success: function (response) {
-          console.log(response)
-        },
-        error: function (error) {
-          console.log(error)
-        }
-      });
-    }
 
-    // Add a "checked" symbol when clicking on a list item
-    var list = document.querySelector("ul");
-    list.addEventListener(
-      "click",
-      function (ev) {
-        if (ev.target.tagName === "LI") {
-          ev.target.classList.toggle("checked");
-        }
-      },
-      false
-    );
+
+
 
     // Create a new list item when clicking on the "Add" button
     function newElement() {
@@ -351,25 +322,45 @@
       span.appendChild(txt);
       li.appendChild(span);
 
-      for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-          var div = this.parentElement;
-          div.style.display = "none";
-
-        };
-      }
       $.ajax({
         url: '/addQuestion',
         type: 'POST',
         data: { 'quest': inputValue },
         success: function (response) {
-          console.log(response)
+          // console.log(response)
         },
         error: function (error) {
-          console.log(error)
+          // console.log(error)
         }
       });
 
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+          var div = this.parentElement;
+          div.style.display = "none";
+          id = div.id
+          console.log(id)
+          data = id.value
+          console.log(data)
+
+          // console.log(data);
+          console.log("Checking this stuffffzz");
+          $.ajax({
+            url: '/deleteQuestion',
+            type: 'POST',
+            data: { 'quest': data },
+            success: function (response) {
+              console.log(response)
+            },
+            error: function (error) {
+              console.log(error)
+
+            }
+          });
+        };
+      };
     }
   </script>
 </body>

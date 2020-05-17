@@ -46,7 +46,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # app.config['MONGO_URI'] = "mongodb://localhost:27017/interview_training"
 # mongo = PyMongo(app)
 
-mongo = MongoClient('mongodb+srv://anol:anol@cluster0-1cvez.mongodb.net/test?retryWrites=true&w=majority')
+mongo = MongoClient(
+    'mongodb+srv://anol:anol@cluster0-1cvez.mongodb.net/test?retryWrites=true&w=majority')
 db = mongo.get_database('interview_training')
 
 WKHTMLTOPDF_BIN_PATH = r'C:\Program Files\wkhtmltopdf\bin'
@@ -110,7 +111,52 @@ def admin():
 
 @app.route('/submitCompany')
 def submitCompany():
-    return '<h1> add manage profile page </h1>'
+    return redirect(url_for("manageProfile"))
+
+
+@app.route('/manageProfile')
+def manageProfile():
+    comp_profile = []
+    description = []
+    keywords = []
+    questions = []
+    for x in db.profile.find({}, {'_id': 0, 'comp_profile': 1}):
+        for y in x.values():
+            comp_profile.append(y)
+    for x in db.profile.find({}, {'_id': 0, 'description': 1}):
+        for y in x.values():
+            description.append(y)
+    for x in db.profile.find({}, {'_id': 0, 'keywords': 1}):
+        for y in x.values():
+            keywords.append(y)
+    for x in db.profile.find({}, {'_id': 0, 'questions': 1}):
+        for y in x.values():
+            questions.append(y)
+    print("q")
+    print(questions)
+    print("q")
+    print(keywords)
+    print("q")
+    print(description)
+    print("q")
+    print(comp_profile)
+    length = len(comp_profile)
+    return render_template("manage.html", comp_profile=comp_profile, length=length,
+                           questions=questions, description=description, keywords=keywords)
+
+
+@app.route('/deleteProfile', methods=['POST'])
+def deleteProfile():
+    print("delete profile")
+    values = request.form
+    _value = values['comp_profile']
+    print(_value)
+    if _value and request.method == "POST":
+        id = db.profile.find_one_and_delete(
+            {"comp_profile": _value})
+        print(id)
+
+    return redirect(url_for("manageProfile"))
 
 
 @app.route('/logout')
@@ -156,7 +202,7 @@ def studentAccess():
         stud = session['stud_profile']
         print(stud)
     keys = db.profile.find_one({'comp_profile': stud}, {
-                                     '_id': 0, 'description': 0, 'comp_profile': 0, 'questions': 0})
+        '_id': 0, 'description': 0, 'comp_profile': 0, 'questions': 0})
     print(keys)
     for key in keys.values():
         session['keywords'] = key
@@ -166,7 +212,7 @@ def studentAccess():
     questions = []
 
     value = db.profile.find_one({'comp_profile': stud}, {
-                                      '_id': 0, 'description': 0, 'keywords': 0, 'comp_profile': 0})
+        '_id': 0, 'description': 0, 'keywords': 0, 'comp_profile': 0})
 
     # print(value.values())
     # store all the questions in session
@@ -196,6 +242,7 @@ def adminAcess():
         if(valid):
             return redirect(url_for("adminPage"))
         else:
+            flash('Incorrect Email Address or Password')
             return redirect(url_for('loginForm'))
 
 
@@ -223,7 +270,7 @@ def description():
     _value = values['profile']
     d = []
     desc = db.profile.find_one({'comp_profile': _value}, {
-                                     '_id': 0, 'questions': 0, 'keywords': 0, 'comp_profile': 0})
+        '_id': 0, 'questions': 0, 'keywords': 0, 'comp_profile': 0})
     for c in desc.values():
         d.append(c)
     print(d)
@@ -285,7 +332,6 @@ def deleteQuestion():
         id = db.profile.find_one_and_delete(
             {"comp_profile": pro}, {"questions": _value})
         return redirect(url_for("admin"))
-
 
 @app.route('/afterloading')
 def afterloading():
@@ -366,7 +412,7 @@ def afterloading():
     u = -1
     overall_total = 0
     for item in emotion_values:
-        u=u+1
+        u = u+1
         overall_total = overall_total + item
         if item > maz:
             maz = item
@@ -422,7 +468,7 @@ def afterloading():
     return render_template("report.html", garbage=gar_val, cv_keys=cv_keys, ans_keys=ans_keys, ans_values=ans_values,
                            cv_values=cv_values, prosody=content, text_cv=cv, text_ans=ans, co_cv=co_cv,
                            co_ans=co_ans, emotions=contente, emotion_keys=emotion_keys, emotion_values=emotion_values, audio_values=au,
-                           overall=overall, overall_key=overall_key,overall_total=overall_total,zz =zz,mayo=mayo,mayon=mayon)
+                           overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon)
 
 
 @app.route('/loading')
@@ -461,12 +507,14 @@ def finish():
         os.remove(os.path.join(mydir, f))
     return redirect(url_for("index"))
 
+
 def finish_audio_files():
     mydir = app.config['UPLOAD_FOLDER']
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
-        if (f=="audio_coordinates.txt" or f=="audio_emotions.txt" or f=="audio_text.txt"):
+        if (f == "audio_coordinates.txt" or f == "audio_emotions.txt" or f == "audio_text.txt"):
             os.remove(os.path.join(mydir, f))
+
 
 @app.route('/printpdf')
 def printpdf():
@@ -504,7 +552,7 @@ def printpdf():
 
 if __name__ == "__main__":
     # app.run(debug=False)
-    app.run(host = '0.0.0.0', port = 5000)
+    app.run(host='0.0.0.0', port=5000)
 
 # host='http://127.0.0.1:5000/', debug=True, threaded=True
 # this is reference Route -loads the questions in the session ----the below code has been added to route studentLogin

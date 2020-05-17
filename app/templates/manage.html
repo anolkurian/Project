@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Eterna Bootstrap Template - Index</title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../static/img/favicon.png" rel="icon">
+    <link href="../static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../static/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/vendor/venobox/venobox.css" rel="stylesheet">
+
+    <!-- <link href="{{ url_for('static', filename='../static/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" _external=True >
+  <link href="{{ url_for('static', filename='../static/vendor/icofont/icofont.min.css') }}" rel="stylesheet" _external=True >
+  <link href="{{ url_for('static', filename='../static/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet" _external=True >
+  <link href="{{ url_for('static', filename='../static/vendor/animate.css/animate.min.css') }}" rel="stylesheet" _external=True >
+  <link href="{{ url_for('static', filename='../static/vendor/owl.carousel/assets/owl.carousel.min.css') }}"rel="stylesheet"  _external=True >
+  <link href="{{ url_for('static', filename='../static/vendor/venobox/venobox.css') }}" rel="stylesheet"  _external=True >
+   -->
+
+
+
+
+    <!-- Template Main CSS File -->
+    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- <link href="{{ url_for('static', filename='../static/css/style.css') }}"  _external=True > -->
+
+    <!-- =======================================================
+  * Template Name: Eterna - v2.0.0
+  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container d-flex">
+            <div class="contact-info mr-auto">
+                Add <a href="/adminPage">job portfolios here</a>
+            </div>
+            <div class="social-leinks">
+                <div class="contact-info mr-auto">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container d-flex">
+
+            <div class="logo mr-auto">
+                <a href="/"><img src="../static/img/logo.png" alt="" class="img-fluid" style="min-height: 49px;"></a>
+            </div>
+            <center>
+                <div class="logo mr-auto">
+                    <h1 class="text-light"><span style="color: black;">Student Report</span></h1>
+                </div>
+            </center>
+        </div>
+    </header><!-- End Header -->
+    <br>
+    <main id="main">
+
+
+
+        <!-- ======= Blog Section ======= -->
+        <section id="blog" class="blog">
+            {%for i in range(length)%}
+            <div class="container">
+                <div class="col-lg-12 entries">
+
+                    <article class="entry">
+                        <div class="row manage" id="{{comp_profile[i]}}">
+                            <div class="col-lg-11">
+                                <h2 class=" entry-title">
+                                    {{comp_profile[i]}}
+                                </h2>
+                            </div>
+                        </div>
+                        <div class=" col-lg-12">
+                            <p>Keywords : {{keywords[i]}}</p>
+                        </div>
+                        <div class="col-lg-12">
+                            Description : {{description[i]}}
+                        </div>
+                        <br>
+                        <div class="col-lg-12">
+                            Questions-{{questions[i]}}
+
+
+                        </div>
+
+                    </article><!-- End blog entry -->
+
+                </div><!-- End blog entries list -->
+            </div>
+            {%endfor%}
+        </section><!-- End Blog Section -->
+
+
+
+    </main><!-- End #main -->
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+
+        <div class="container">
+            <div class="copyright">
+                <strong><span>Interview Coaching</span></strong>.
+            </div>
+            <div class="credits">
+                Designed by 7978,7922,7933
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="../static/vendor/php-email-form/validate.js"></script>
+    <script src="../static/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="../static/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="../static/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="../static/vendor/counterup/counterup.min.js"></script>
+    <script src="../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../static/vendor/venobox/venobox.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/jquery/jquery.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/jquery.easing/jquery.easing.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/php-email-form/validate.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/jquery-sticky/jquery.sticky.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/owl.carousel/owl.carousel.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/waypoints/jquery.waypoints.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/counterup/counterup.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/isotope-layout/isotope.pkgd.min.js') }}"  _external=True ></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/vendor/venobox/venobox.min.js') }}"  _external=True ></script>
+  
+  <script type="text/javascript" src="{{ url_for('static', filename='../static/js/main.js') }}"  _external=True ></script> -->
+    <!-- Template Main JS File -->
+    <!-- <script src="../static/js/main.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script>
+        var myNodelist = document.getElementsByClassName("manage");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+
+        }
+
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                if (confirm("You are going to delete this entry permanently, are you sure you want to continue?")) {
+                    var divp = this.parentElement;
+                    var data = divp.id
+                    var div = divp.parentElement;
+                    div.style.display = "none";
+                    console.log(data);
+                    console.log("neeche");
+
+                    $.ajax({
+                        url: '/deleteProfile',
+                        type: 'POST',
+                        data: { 'comp_profile': data },
+                        success: function (response) {
+                            console.log(response)
+                        },
+                        error: function (error) {
+                            console.log(error)
+                        }
+                    });
+                }
+            };
+
+        }
+    </script>
+</body>
+
+</html>

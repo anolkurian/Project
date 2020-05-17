@@ -11,7 +11,6 @@ import pyaudio
 import wave
 import operator
 import speech_recognition as sr
-import easygui
 
 emotion_model_path = 'models/_mini_XCEPTION.102-0.66.hdf5'
 cascPath = 'models\haarcascade_frontalface_default.xml'  # dataset
