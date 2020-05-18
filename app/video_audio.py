@@ -13,7 +13,7 @@ import operator
 import speech_recognition as sr
 
 emotion_model_path = 'models/_mini_XCEPTION.102-0.66.hdf5'
-cascPath = 'models\haarcascade_frontalface_default.xml'  # dataset
+cascPath = 'models/haarcascade_frontalface_default.xml'  # dataset
 faceCascade = cv2.CascadeClassifier(cascPath)
 emotion_classifier = load_model(emotion_model_path, compile=False)
 EMOTIONS = ["angry" ,"disgust","scared", "happy", "sad", "surprised", "neutral"]

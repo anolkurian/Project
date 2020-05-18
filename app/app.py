@@ -71,7 +71,7 @@ def dumpsProfile(result_json):
 
 @app.route('/')
 def index():
-    # finish()
+    finish()
     return render_template("home1.html")
 
 
@@ -83,7 +83,7 @@ def student():
         for y in x.values():
             prof.append(y)
     print(prof)
-    # finish()
+    finish()
     return render_template("student.html", profiles=prof)
 
 
@@ -566,7 +566,7 @@ def printpdf():
 
 if __name__ == "__main__":
     # app.run(debug=False)
-    app.run(host='http://127.0.0.1:5000/', debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=5000)
 
 # host='0.0.0.0', port=5000
 # host='http://127.0.0.1:5000/', debug=True, threaded=True
