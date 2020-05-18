@@ -13,7 +13,9 @@ from video_audio import destroy, check_audio
 from coherence import coherence_cv
 from coherence import coherence_ans
 from prosody import prosodyfile
-from text import textfile
+# from text import textfile
+from text import loadProfile
+from text import getSummary
 import collections
 import functools
 import operator
@@ -63,9 +65,13 @@ WKHTMLTOPDF_USE_CELERY = True
 #     submit = SubmitField('Sign In')
 
 
+def dumpsProfile(result_json):
+    db.result.insert_one(result_json)
+
+
 @app.route('/')
 def index():
-    finish()
+    # finish()
     return render_template("home1.html")
 
 
@@ -77,7 +83,7 @@ def student():
         for y in x.values():
             prof.append(y)
     print(prof)
-    finish()
+    # finish()
     return render_template("student.html", profiles=prof)
 
 
@@ -333,6 +339,7 @@ def deleteQuestion():
             {"comp_profile": pro}, {"questions": _value})
         return redirect(url_for("admin"))
 
+
 @app.route('/afterloading')
 def afterloading():
     session["garbage"] = "False"
@@ -435,7 +442,14 @@ def afterloading():
         gar_val = session['garbage']
         print(gar_val)
 
-    cv, ans = textfile()
+    # cv, ans = textfile()
+
+    result2 = loadProfile()
+    dumpsProfile(result2)
+
+    # node js
+    ans = getSummary()
+
     # coherence
     if 'keywords' in session:
         k = session['keywords']
@@ -466,7 +480,7 @@ def afterloading():
     # session['au'] = au
 
     return render_template("report.html", garbage=gar_val, cv_keys=cv_keys, ans_keys=ans_keys, ans_values=ans_values,
-                           cv_values=cv_values, prosody=content, text_cv=cv, text_ans=ans, co_cv=co_cv,
+                           cv_values=cv_values, prosody=content,  text_ans=ans, co_cv=co_cv,
                            co_ans=co_ans, emotions=contente, emotion_keys=emotion_keys, emotion_values=emotion_values, audio_values=au,
                            overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon)
 
@@ -552,7 +566,8 @@ def printpdf():
 
 if __name__ == "__main__":
     # app.run(debug=False)
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='http://127.0.0.1:5000/', debug=True, threaded=True)
 
+# host='0.0.0.0', port=5000
 # host='http://127.0.0.1:5000/', debug=True, threaded=True
 # this is reference Route -loads the questions in the session ----the below code has been added to route studentLogin
