@@ -415,9 +415,9 @@
                 <!-- <p>
                   {{prosody}}
                 </p> -->
-                <div class="read-more">
+                <!-- <div class="read-more">
                   <a href="blog-single.html">Read More</a>
-                </div>
+                </div> -->
               </div>
 
             </article><!-- End blog entry -->
@@ -446,9 +446,9 @@
                   Your CV-Coherence is {{co_cv}}<br>
                   Your Answer-Coherence is{{co_ans}}
                 </p>
-                <div class="read-more">
+                <!-- <div class="read-more">
                   <a href="blog-single.html">Read More</a>
-                </div>
+                </div> -->
               </div>
 
             </article><!-- End blog entry -->
@@ -642,7 +642,7 @@
 
   <script>var ctx = document.getElementById('myChart2').getContext('2d');
     var myChart2 = new Chart(ctx, {
-      type: 'polarArea',
+      type: 'line',
       data: {
         labels: [{% for item in cv_keys %}
         "{{ item }}",

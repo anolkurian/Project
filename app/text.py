@@ -6,7 +6,7 @@ import json
 import os.path
 import requests
 import zipfile
-import textract
+# import textract
 import re
 import glob
 # text=Blueprint("text",__name__,static_folder="static",template_folder="templates")

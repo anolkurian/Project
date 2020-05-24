@@ -1,8 +1,8 @@
 from flask import Flask
 import os
-from flask_pymongo import PyMongo
-from bson.json_util import dumps
-from bson.objectid import ObjectId
+# from flask_pymongo import PyMongo
+# from bson.json_util import dumps
+# from bson.objectid import ObjectId
 from flask import jsonify, request, render_template, url_for, session, redirect, flash, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
@@ -23,8 +23,8 @@ import ast
 import operator
 from collections import Counter
 import cv2
-import pdfkit
-from flask_wkhtmltopdf import Wkhtmltopdf
+# import pdfkit
+# from flask_wkhtmltopdf import Wkhtmltopdf
 import re
 from pymongo import MongoClient
 # Validation Stuff
@@ -34,7 +34,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 app.register_blueprint(video, url_prefix="")
-wkhtmltopdf = Wkhtmltopdf(app)
+# wkhtmltopdf = Wkhtmltopdf(app)
 # app.register_blueprint(text,url_prefix="")
 # app.register_blueprint(prosody,url_prefix="")
 # app.register_blueprint(coherence,url_prefix="")
@@ -52,11 +52,11 @@ mongo = MongoClient(
     'mongodb+srv://anol:anol@cluster0-1cvez.mongodb.net/test?retryWrites=true&w=majority')
 db = mongo.get_database('interview_training')
 
-WKHTMLTOPDF_BIN_PATH = r'C:\Program Files\wkhtmltopdf\bin'
+# WKHTMLTOPDF_BIN_PATH = r'C:\Program Files\wkhtmltopdf\bin'
 PDF_DIR_PATH = os.path.join(os.path.dirname(
     os.path.abspath(__file__)), 'static', 'pdf')
 
-WKHTMLTOPDF_USE_CELERY = True
+# WKHTMLTOPDF_USE_CELERY = True
 
 # class LoginForm(FlaskForm):
 #     username = StringField('Username', validators=[DataRequired()])

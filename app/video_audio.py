@@ -5,7 +5,7 @@ import imutils
 import cv2
 from tensorflow.keras.models import load_model
 import numpy as np
-from sklearn.metrics import confusion_matrix
+# from sklearn.metrics import confusion_matrix
 import cv2
 import pyaudio
 import wave

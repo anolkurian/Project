@@ -8,7 +8,7 @@ from keras.preprocessing.image import img_to_array
 import imutils
 from keras.models import load_model
 import numpy as np
-from sklearn.metrics import confusion_matrix
+# from sklearn.metrics import confusion_matrix
 import time
 from multiprocessing import Process
 from threading import Thread
