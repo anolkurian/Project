@@ -24,7 +24,7 @@ channels = 2
 fs = 44100  # Record at 44100 samples per second
 seconds = 5
 # filename = "output77.wav"
-index=['./uploads/one.wav','./uploads/two.wav','./uploads/three.wav','./uploads/four.wav','./uploads/five.wav']
+index=['./uploads/one.wav','./uploads/two.wav','./uploads/three.wav','./uploads/four.wav','./uploads/five.wav','./uploads/six.wav','./uploads/seven.wav','./uploads/eight.wav','./uploads/nine.wav','./uploads/ten.wav']
 
 z={}
 fee = "T"

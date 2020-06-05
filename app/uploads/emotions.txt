@@ -1,6 +1,9 @@
 happy
-happy
-happy
-happy
-happy
+angry
+neutral
+neutral
+neutral
+angry
+angry
+neutral
 neutral

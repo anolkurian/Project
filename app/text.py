@@ -57,8 +57,8 @@ def loadProfile():
         ).get_result()
 
     result2 = profile
-    print("result1")
-    # print(result1)
+    # print("resul22222222222222222222222222222222222222222222222222222222222t")
+    # print(result2)
 
     return result2
 

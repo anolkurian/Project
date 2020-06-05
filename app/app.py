@@ -71,7 +71,7 @@ def dumpsProfile(result_json):
 
 @app.route('/')
 def index():
-    finish()
+    # finish()
     return render_template("home1.html")
 
 
@@ -83,7 +83,7 @@ def student():
         for y in x.values():
             prof.append(y)
     print(prof)
-    finish()
+    # finish()
     return render_template("student.html", profiles=prof)
 
 
@@ -378,6 +378,10 @@ def afterloading():
             # print(resultant)
     au = [r/lenz for r in resultant]
     print("au")
+    lz=len(au)
+    for i in range(lz):
+        au[i]=round(au[i],4)
+        print("au",au[i])
     print(au)
     print("after prosodyfile")
     print("before emotions")
@@ -428,7 +432,7 @@ def afterloading():
     overall_key = emotion_keys[zzz]
     zz = overall/overall_total * 100
     # text file
-    garb = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc"
+    garb = "python c java python ruby ruby ruby ruby rubyLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, Lorem ipsum dolor sit amet.., comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc"
     with open("./uploads/audio_text.txt") as f:
         bizz = str(f.read())
     print(bizz)
@@ -450,6 +454,42 @@ def afterloading():
     # node js
     ans = getSummary()
 
+    chara={}
+
+    # print("helooooooooo here")
+    # char= db.result.find({}, {'_id': 0, "$arrayElemAt": [ "$personality", 0 ]})
+    # print("charrrrr")
+    # print(char)
+    #     print("x")
+    #     print(type(x))
+    #     print(x)
+    #     i = 1
+    #     for y in x.values:
+    #         print(y)
+    #         print(i)
+    #         i = i+1
+    #     chara=x
+    #     chara.pop('children')      
+            
+    #     print("final")
+    #     print(chara)
+    # char={}
+    # char=db.result.find({},{'_id':0,'personality':1,[
+    # {
+    #     "$project":
+    #     {
+    #         openness: { "$arrayElemAt": [ "$personality", 0 ] },
+    #         conscience: { "$arrayElemAt": [ "$personality", 1 ] },
+    #         extra: { "$arrayElemAt": [ "$personality", 2 ] },
+    #         agreee: { "$arrayElemAt": [ "$personality", 3 ] },
+    #         nerotism: { "$arrayElemAt": [ "$personality", 4 ] },
+    #     }
+    # }
+    # ]})
+    
+    # print("charrrrrrrrrrr")
+    # print(char)
+
     # coherence
     if 'keywords' in session:
         k = session['keywords']
@@ -459,8 +499,20 @@ def afterloading():
     print("co_ans")
     cv_keys = co_cv_d.keys()
     ans_keys = co_ans_d.keys()
-    ans_values = co_cv_d.values()
+    print("WOWZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+    # print("keys\n"+str(cv_keys)+"\n"+str(ans_keys))
+    for i in ans_keys:
+        print(i)
+    print(type(cv_keys))
+    print(type(ans_keys))
+    ans_values = co_ans_d.values()
     cv_values = co_cv_d.values()
+    print("dfasfsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+    for i in ans_values:
+        print(i)
+    # print("values\n"+str(cv_values)+"\n"+(ans_values))
+    print(type(ans_values))
+    print(type(cv_values))
     mayo = au.index(max(au))
     mayon = max(au)
 
@@ -482,7 +534,7 @@ def afterloading():
     return render_template("report.html", garbage=gar_val, cv_keys=cv_keys, ans_keys=ans_keys, ans_values=ans_values,
                            cv_values=cv_values, prosody=content,  text_ans=ans, co_cv=co_cv,
                            co_ans=co_ans, emotions=contente, emotion_keys=emotion_keys, emotion_values=emotion_values, audio_values=au,
-                           overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon)
+                           overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon,k=k[0])
 
 
 @app.route('/loading')
@@ -518,7 +570,10 @@ def finish():
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
         print(f)
-        os.remove(os.path.join(mydir, f))
+        # os.remove(os.path.join(mydir, f))
+    
+    db.result.drop()
+    
     return redirect(url_for("index"))
 
 

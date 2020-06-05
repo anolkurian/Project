@@ -212,7 +212,7 @@
             <div id="myDIV" class="header">
 
               <input type="text" id="myInput" placeholder="Add Questions" />
-              <span onclick="newElement()" class="addBtn">Add</span>
+              <span onclick="newElement()" class="addBtn" id="add">Add</span>
               </input>
             </div>
           </div>
@@ -222,8 +222,9 @@
           <br>
           <div class="col-lg-12">
             <center>
-              <a href="/submitCompany" class=" buy-btn"
-                style="height: 55px; width: 200px; font-size: 33px; text-align: center;"><strong>Submit</strong></a>
+              <a href="/submitCompany" class=" buy-btn disabledbutton" onclick="checklen()"
+                style="height: 55px; width: 200px; font-size: 33px; text-align: center;"
+                id="submitcomp"><strong>Submit</strong></a>
             </center>
           </div>
         </div>
@@ -286,16 +287,31 @@
         .addClass("selected")
         .html(fileName);
     });
+    function checklen() {
+      var myNodelist = document.getElementsByTagName("LI");
+      console.log(myNodelist.length);
+      var i;
+      if (myNodelist.length < 1 || myNodelist.length > 10) {
+        alert("Enter atleast 1 and maximum 10 questions")
+        console.log(myNodelist.length);
+      }
 
-    // Create a "close" button and append it to each list item
+    }
+
+
+    // $("#submitcomp").on("submit", function () {
+
+
+
+    // This thing ia not used anywhereeeee
     var myNodelist = document.getElementsByTagName("LI");
-    var i;
-    for (i = 0; i < myNodelist.length; i++) {
+    var z;
+    for (z = 0; z < myNodelist.length; z++) {
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
       span.className = "close";
       span.appendChild(txt);
-      myNodelist[i].appendChild(span);
+      myNodelist[z].appendChild(span);
     }
 
     // Click on a close button to hide the current list item
@@ -322,6 +338,19 @@
       span.appendChild(txt);
       li.appendChild(span);
 
+      var myNodelist = document.getElementsByTagName("li");
+      z = myNodelist.length
+      if (z < 1 || z > 10) {
+        console.log("if");
+        console.log(z);
+        document.getElementById('submitcomp').classList.add("disabledbutton")
+      }
+      if (z >= 1 && z <= 10) {
+
+        console.log(z + "else");
+        document.getElementById('submitcomp').classList.remove("disabledbutton")
+      }
+
       $.ajax({
         url: '/addQuestion',
         type: 'POST',
@@ -344,6 +373,19 @@
           console.log(id)
           data = id.value
           console.log(data)
+
+          var myNodelist = document.getElementsByTagName("li");
+          z = myNodelist.length
+          if (z < 1 || z > 10) {
+            console.log("if");
+            console.log(z);
+            document.getElementById('submitcomp').classList.add("disabledbutton")
+          }
+          if (z >= 1 && z <= 11) {
+
+            console.log(z + "else");
+            document.getElementById('submitcomp').classList.remove("disabledbutton")
+          }
 
           // console.log(data);
           console.log("Checking this stuffffzz");
