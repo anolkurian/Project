@@ -1,4 +1,4 @@
-trial commit
+
 
 from flask import Flask
 import os
@@ -458,39 +458,27 @@ def afterloading():
 
     chara={}
 
-    # print("helooooooooo here")
-    # char= db.result.find({}, {'_id': 0, "$arrayElemAt": [ "$personality", 0 ]})
-    # print("charrrrr")
-    # print(char)
-    #     print("x")
-    #     print(type(x))
-    #     print(x)
-    #     i = 1
-    #     for y in x.values:
-    #         print(y)
-    #         print(i)
-    #         i = i+1
-    #     chara=x
-    #     chara.pop('children')      
-            
-    #     print("final")
-    #     print(chara)
-    # char={}
-    # char=db.result.find({},{'_id':0,'personality':1,[
-    # {
-    #     "$project":
-    #     {
-    #         openness: { "$arrayElemAt": [ "$personality", 0 ] },
-    #         conscience: { "$arrayElemAt": [ "$personality", 1 ] },
-    #         extra: { "$arrayElemAt": [ "$personality", 2 ] },
-    #         agreee: { "$arrayElemAt": [ "$personality", 3 ] },
-    #         nerotism: { "$arrayElemAt": [ "$personality", 4 ] },
-    #     }
-    # }
-    # ]})
+
+                  percentile=[d['percentile'] for d in y]            name=[d['name'] for d in y]    print("name")    print(name)
+    print("percentile")    
+    print(percentile)
+
+
+    for x in db.result.find({},{'_id':0,'personality.trait_id':1,'personality.name':1,'personality.percentile':1}):
+        for y in x.values():
+            print("yyyyy")
+            print(y)
+            p_percentile=[d['percentile']for d in y]
+            p_name=[d['name']for d in y]
+
+    print("percentile")
+    print(p_percentile)
+
+    print("name")
+    print(p_name)
+
+
     
-    # print("charrrrrrrrrrr")
-    # print(char)
 
     # coherence
     if 'keywords' in session:
@@ -536,7 +524,7 @@ def afterloading():
     return render_template("report.html", garbage=gar_val, cv_keys=cv_keys, ans_keys=ans_keys, ans_values=ans_values,
                            cv_values=cv_values, prosody=content,  text_ans=ans, co_cv=co_cv,
                            co_ans=co_ans, emotions=contente, emotion_keys=emotion_keys, emotion_values=emotion_values, audio_values=au,
-                           overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon,k=k[0])
+                           overall=overall, overall_key=overall_key, overall_total=overall_total, zz=zz, mayo=mayo, mayon=mayon,k=k[0],p_name=p_name,p_percentile=p_percentile)
 
 
 @app.route('/loading')
