@@ -141,30 +141,35 @@
                 </p>
                 <div class="entry-content">
                   <div class="row" style=" font-weight: bold;font-family: New Century Schoolbook, serif;">
-                    <div class="col-lg-6">
-                      <p style="color: rgba(40, 37, 216);">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                      <p style="color: rgba(40, 37, 216);margin-bottom: 0;">
                         Question No.
                       </p>
                     </div>
-                    <div class="col-lg-6">
-                      <p style="color: rgba(40, 37, 216);">
+                    <div class="col-lg-4">
+                      <p style="color: rgba(40, 37, 216); margin-bottom: 0;">
                         Average Emotion.
                       </p>
                     </div>
+                    <div class="col-lg-2"></div>
                   </div>
                   {% for emotion in emotions %}
                   <div class="row " style=" font-style: italic;font-weight: bold;font-family: New Century Schoolbook, serif;">
-                    <div class="col-lg-6">
+                    
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
                       {{loop.index}}
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                       {{emotion }}
                     </div>
+                    <div class="col-lg-2"></div>
                   </div>
                   {% endfor %}
                   <br />
                   <div class="row">
-                    <p style="color: rgba(40, 37, 216); font-weight: bold;font-family: New Century Schoolbook, serif;">
+                    <p style="color: rgba(40, 37, 216); font-weight: bold;font-family: New Century Schoolbook, serif; margin-bottom: 0;">
                       Detailed Analysis:
                     </p>
                     {%if overall_key=="Angry"%}
@@ -280,19 +285,19 @@
                       {{overall_total}}
                     </div> -->
                     <div class="col-lg-4">
-                      <p style="color: rgba(40, 37, 216);">
+                      <p style="color: rgba(40, 37, 216); margin-bottom: 0;">
                         Instance Name:
                       </p>
                       {{overall_key}}
                     </div>
                     <div class="col-lg-4">
-                      <p style="color: rgba(40, 37, 216);">
+                      <p style="color: rgba(40, 37, 216); margin-bottom: 0;">
                         Instance Occurence:
                       </p>
                       {{overall}}
                     </div>
                     <div class="col-lg-4">
-                      <p style="color: rgba(40, 37, 216);">
+                      <p style="color: rgba(40, 37, 216); margin-bottom: 0 ;">
                         Percentage occurence:
                       </p>
                       {{zz}} %
@@ -303,14 +308,14 @@
                     class="row"
                     style="
                       font-family: New Century Schoolbook, serif;
-                      font-style: italic;
+                      
                       font-weight: bold;
                     "
                   >
                   <p
                     style="
                       font-family: New Century Schoolbook, serif;
-                      font-style: bold;
+                      font-style: bold; margin-bottom: 0;
                     "
                   >
                 
@@ -318,14 +323,14 @@
                     mixture of neutral and happy as your predominant emotions.
                   </p>
                
-                    <p>
+                    <p style="margin-bottom: 0;">
                       Your facial expressions can help determine the outcome of
                       a job interview. It becomes a part of all your answers to
                       questions. It reflects your attitude towards the company
                       and puts on display your willingness to work with the
                       company.
                     </p>
-                    <p>
+                    <p style="margin-bottom: 0;">
                       Smiles are extremely potent. They are the expression we
                       recognize from the furthest distance away. We tend to
                       respond to them by smiling ourselves, without even
@@ -392,17 +397,23 @@
                   </div>
                 </div>
                 
-                <div class="row" style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;">
-                  {% for p in p_name %}
+                <div class="row" style=" font-weight: bold;font-family: New Century Schoolbook, serif;">
+                  <div class="col-lg-2"></div>
                   <div class="col-lg-4">
-                    {{p}}
+                    {% for p in p_name %}
+                    <div class="row">
+                      {{p}}
+                    </div>
+                    {% endfor %}
                   </div>
-                  {% endfor %}
-                  {% for p in p_percentile %}
                   <div class="col-lg-4">
-                    {{p }}
+                    {% for p in p_percentile %}
+                    <div class="row">
+                      {{p }}
+                    </div>
+                    {% endfor %}
                   </div>
-                  {% endfor %}
+                  <div class="col-lg-2"></div>
                 </div>
                 
               </article>
@@ -536,7 +547,7 @@
                     {% endfor %}
                   </div>
                 </br>
-                  <div class="row" style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;">
+                  <div class="row" style=" font-weight: bold;;font-family: New Century Schoolbook, serif;margin-bottom: 6px;">
                     <p>
                       The emotion with a maximum average probability of
                       {{mayon}} is {%if mayo == 0%} Anger {%endif%} {%if mayo ==
@@ -545,7 +556,7 @@
                       {%endif%} {%if mayo == 5%} Sadness {%endif%}
                     </p>
                   </div>
-                  <div class="row"style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;">
+                  <div class="row"style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;margin-bottom: 6px">
                     {%if mayo == 0%}
                     <p>
                       You predominantly sound angry during the interview. This
@@ -597,7 +608,7 @@
                   </div>
                   <div
                     class="row"
-                    style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;"
+                    style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif; margin-bottom: 6px"
                   >
                     <a
                       href="https://www.executiveconnexions.com/interview-skills/is-the-sound-of-your-voice-sabotaging-your-job-interview/"
@@ -610,9 +621,9 @@
                   <!-- <p>
                   {{prosody}}
                 </p> -->
-                  <div class="read-more">
+                  <!-- <div class="read-more">
                     <a href="blog-single.html">Read More</a>
-                  </div>
+                  </div> -->
                 </div>
               </article>
               <!-- End blog entry -->
@@ -637,12 +648,60 @@
 
                 <div class="entry-content" style=" font-weight: bold; font-style: italic;font-family: New Century Schoolbook, serif;">
                   <p>
-                    Your CV-Coherence is {{co_cv}}<br />
+                    Your CV-Coherence is {{co_cv}}
+                    
+                  </p>
+                  {%if co_cv <= 25%}
+                  <p>
+                    You Scored very low, and your cv is not in hands with the requirements of the recruiter. You might get screened out by your CV itself without having a chance at an interview. Update your CV. Try to incorporate more topics that relate to the job profile you are interviewing for. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_cv <= 50 and co_ans >=26 %}
+                  <p>
+                    You Scored okayish, and your cv might pass the screening but it will probably end up at the bottom of the pile. To increase your odds try to stress more on topics that are requested by the company. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_cv <= 75 and co_ans >=51 %}
+                  <p>
+                    You Scored good, and your cv has a good chance of being shortlisted to the top stack. Keep in mind the roles and expectations of the interviewer and you're well set. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_cv <= 100 and co_ans >=76%}
+                  <p>
+                    You Scored excellent. While it is amazing that you have managed to tailor your CV for the specific companies needs, Make sure you do not limit yourself to these fields and add other subjects as well to provide a sense of flexibility.
+                  </p>
+                  {%endif%}
+                  <br />
+
+
+
+                  
+                  <p>
                     Your Answer-Coherence is{{co_ans}}
                   </p>
-                  <div class="read-more">
+                  {%if co_ans <= 25 %}
+                  <p>
+                    You Scored very low, and your ans is not in hands with the requirements of the recruiter.You might get shortlisted if you are extremely bright else try to incorporate more topics that relate to the job profile you are interviewing for. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_ans <= 50 and co_ans >= 26%}
+                  <p>
+                    You Scored okayish, and you seem to be slightly interested in the required topics. To increase your odds try to stress more on topics that are requested by the company. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_ans <= 75 and co_ans >= 51%}
+                  <p>
+                    You Scored good, and you have a good chance of being shortlisted to the top stack. Keep in mind the roles and expectations of the interviewer and you're well set. It will help your interview if you seem interested and experienced in tech stack requested by the company.
+                  </p>
+                  {%endif%}
+                  {%if co_ans <= 100 and co_ans >= 76 %}
+                  <p>
+                    You Scored excellent. While it is amazing that you have managed to score such a high score, make sure you do not limit yourself to these fields and mention other areas of interests as well to provide a sense of flexibility.
+                  </p>
+                  {%endif%}
+                  <!-- <div class="read-more">
                     <a href="blog-single.html">Read More</a>
-                  </div>
+                  </div> -->
                 </div>
               </article>
               <!-- End blog entry -->

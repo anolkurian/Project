@@ -458,12 +458,6 @@ def afterloading():
 
     chara={}
 
-
-                  percentile=[d['percentile'] for d in y]            name=[d['name'] for d in y]    print("name")    print(name)
-    print("percentile")    
-    print(percentile)
-
-
     for x in db.result.find({},{'_id':0,'personality.trait_id':1,'personality.name':1,'personality.percentile':1}):
         for y in x.values():
             print("yyyyy")
@@ -529,7 +523,7 @@ def afterloading():
 
 @app.route('/loading')
 def loading():
-    destroy()
+    # destroy()
     return render_template("loading.html")
 
 
@@ -560,7 +554,7 @@ def finish():
     filelist = [f for f in os.listdir(mydir)]
     for f in filelist:
         print(f)
-        # os.remove(os.path.join(mydir, f))
+        os.remove(os.path.join(mydir, f))
     
     db.result.drop()
     

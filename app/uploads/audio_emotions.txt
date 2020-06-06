@@ -1,4 +1,2 @@
-Your emotion is in category: trainingData/anger, with probability: 0.7481
-Your emotion is in category: trainingData/happiness, with probability: 0.7697
-Your emotion is in category: trainingData/anger, with probability: 0.6465
-Your emotion is in category: trainingData/happiness, with probability: 0.9064
+Your emotion is in category: trainingData/happiness, with probability: 0.5925
+Your emotion is in category: trainingData/happiness, with probability: 0.8817

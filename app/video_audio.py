@@ -123,7 +123,7 @@ def start_model():
     global fee,z
     print("video")
     val=[]
-    t_end = time.time() + 10
+    t_end = time.time() + 5
     while time.time() < t_end:
         if(fee == "T"):
             ret ,frame = video_capture.read()
@@ -159,10 +159,11 @@ def start_model():
     print(y)
     emot=EMOTIONS[y]
     print(emot)
-    with open("./uploads/emotions_coordinates.txt", "a") as text_file:
-        text_file.write(str(z)+"\n")
-    with open("./uploads/emotions.txt", "a") as text_file:
-        text_file.write(str(emot)+"\n")
+    if(check_audio):
+        with open("./uploads/emotions_coordinates.txt", "a") as text_file:
+            text_file.write(str(z)+"\n")
+        with open("./uploads/emotions.txt", "a") as text_file:
+            text_file.write(str(emot)+"\n")
     fee = "T"
 
 def destroy():
