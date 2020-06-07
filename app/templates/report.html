@@ -919,13 +919,12 @@
     <script>
       var ctx = document.getElementById('myChart2').getContext('2d');
           var myChart2 = new Chart(ctx, {
-            type: 'polarArea',
+            type: 'pie',
             data: {
               labels: [{% for item in cv_keys %}
               "{{ item }}",
       {% endfor %}],
           datasets: [{
-            label: '# of Votes',
             data: [
               {% for item in cv_values %}
                       {{ item }},
@@ -975,13 +974,12 @@
 
           var cty = document.getElementById('myChart4').getContext('2d');
           var myChart4 = new Chart(cty, {
-            type: 'line',
+            type: 'pie',
             data: {
               labels: [{% for item in ans_keys %}
       "{{ item }}",
       {% endfor %}],
           datasets: [{
-            label: '# of Votes',
             data: [{% for item in ans_values %}
                       {{ item }},
           {% endfor %}],

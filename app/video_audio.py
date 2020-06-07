@@ -38,10 +38,6 @@ def audio_model():
     global fee
     filename = index.pop(0)
     p = pyaudio.PyAudio()  # Create an interface to PortAudio
-    print('Recording')
-    print(index)
-
-    print(filename)
     stream = p.open(format=sample_format,
                     channels=channels,
                     rate=fs,
@@ -60,9 +56,6 @@ def audio_model():
     stream.close()
     # Terminate the PortAudio interface
     p.terminate()
-    
-    print('Finished recording')
-    
     # Save the recorded data as a WAV file
     wf = wave.open(filename, 'wb')
     wf.setnchannels(channels)
